@@ -1,0 +1,29 @@
+/* Set gradient here */
+body {  
+     background: linear-gradient(-90deg,pink, white); 
+    /* background: linear-gradient(-90deg, black, pink, green ); */
+    /* background: linear-gradient(-90deg, yellow, orange, red, green, blue);*/
+}
+
+canvas { 
+    display:block; /* remove scrollbars */
+    position: absolute;  /* position at top left corner for overlay */
+    left: 0;
+    top: 0;
+    z-index: -3;
+}
+
+h1 {
+    color: #222; 
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+h2 {
+    color: #111;
+    font-family: 'Open Sans',sans-serif; 
+}
+
+p {
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+}

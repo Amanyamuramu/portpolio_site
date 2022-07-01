@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+/* fundamental color */
+:root{
+    --main-color:rgb(0,0,0);
+    --accent-color: #BF6A7A;
+    --dark-main-color: rgb(0, 0, 0);
+    --text-bright-color: #fff;
+    --gray-color: #ddd;
+
+}
+/* set up font */
+body {
+    margin: 0;
+    font-family:'メイリオ', 
+    'Hiragino Kaku Gothic Pro',
+    sans-serif;
+    z-index: 100;
+    text-align:center; 
+
+}
+/* キャンバスを一番上に固定することでjsとの重ね合わせができる */
+#defaultCanvas0{
+    position: fixed; /*canvasを固定*/
+    top: 0; /*canvasを上に固定*/
+    z-index: -1;
+  }
+
+.conA{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 450px;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.2)),url(img/01.png);
+
+    background-position: center;
+    background-size: cover;
+    color: rgba(7, 6, 6, 0.495);
+    color: var(text-bright-color);
+    text-align: center;
+}
+
+.conA.compact{
+    height: 250px;
+    min-height: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url(img/01.png);
+}
+.conA h1{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 10vw;
+    letter-spacing: 0.2em;
+    margin-left: 0.2em;
+}
+
+.conA p{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+@media (min-width: 768px){
+    .conA h1{
+        font-size: 100px;
+    }
+    .conA p{
+        font-size: 24px;
+    }
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(190, 190, 190, 0.7);
+
+}
+
+.nohero header{
+    position: fixed;
+    border-bottom: solid 1px #ddd;
+    border-bottom: solid 1px var(--gray-color);
+}
+.headA{
+    display: inline-block;
+    line-height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #5D9AB2;
+    background-color: var(--main-color);
+    color: rgb(131, 42, 42);
+    color: var(--text-bright-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+
+}
+
+.headB ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+.headB li ul{
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+.headB a{
+    display: block;
+    padding: 15px;
+    color: inherit;
+    font-size: 12px;
+    text-decoration: none;
+
+}
+
+.headB a:hover{
+    background-color: rgba(0,0,0,0.2);
+
+}
+@media (min-width: 768px){
+    header .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+    .headB ul{
+        display: flex;
+    }
+
+}
+
+
+.list1 .container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+    margin: 0.2px auto;
+}
+.list1 article{
+    flex: 1 1 400px;
+}
+.list1 a{
+    position: relative;
+    margin: 0.5px;
+    display: block;
+    border: solid 1px #ddd;
+    border: solid 1px var(--gray-color);
+    background-color: rgba(0,0,0,0.6);
+    color: inherit;
+    text-decoration: none;
+
+
+}
+.list1 a:hover{
+    opacity: 0.6;
+}
+.list1 .photo{
+    min-height: 270px;
+
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+}
+.list1 .text{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 7px;
+    color: #fff;
+    color: var(--text-bright-color);
+}
+.list1 h2{
+    margin: 0;
+    opacity: 0.8;
+    font-size: 18px;
+
+}
+.list1 p{
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.open {
+	cursor:pointer; /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
+}
+#pop-up {
+	display: none; /* label でコントロールするので input は非表示に */
+}
+.overlay {
+	display: none; /* input にチェックが入るまでは非表示に */
+}
+#pop-up:checked + .overlay {
+	display: block;
+	z-index: 9999;
+	background-color: #00000070;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+.window {
+	width: 90vw;
+	max-width: 380px;
+	height: 240px;
+	background-color: #ffffff;
+	border-radius: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.text {
+	font-size: 18px;
+	margin: 0;
+}
+.close {
+	cursor:pointer;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	font-size: 20px;
+}
+
+.text_img{
+    width: 1%;
+}
